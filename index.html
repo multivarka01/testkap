@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Kapitanych — Tactical Interface</title>
+<title>Kapitanych</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Inter:wght@400;600&display=swap" rel="stylesheet">
 
@@ -84,14 +84,7 @@ h1{
   font-weight:900;
 }
 
-.subtitle{
-  margin-top:10px;
-  font-size:16px;
-  letter-spacing:3px;
-  color:#888;
-}
-
-/* MODULES GRID */
+/* MODULES */
 
 .modules{
   margin-top:60px;
@@ -103,13 +96,11 @@ h1{
   padding:0 20px;
 }
 
-/* HUD CARD */
-
 .module{
   position:relative;
-  padding:30px;
+  padding:35px 20px;
   background:rgba(255,255,255,0.03);
-  border:1px solid rgba(168,85,247,0.3);
+  border:1px solid rgba(168,85,247,0.4);
   border-radius:16px;
   backdrop-filter:blur(10px);
   transition:.4s;
@@ -117,7 +108,6 @@ h1{
   overflow:hidden;
 }
 
-/* HUD corners */
 .module::before,
 .module::after{
   content:"";
@@ -143,13 +133,8 @@ h1{
 
 .module h3{
   font-family:Orbitron;
-  letter-spacing:2px;
-  margin-bottom:10px;
-}
-
-.module p{
-  font-size:14px;
-  color:#aaa;
+  letter-spacing:3px;
+  font-size:18px;
 }
 
 .module:hover{
@@ -161,21 +146,21 @@ h1{
 /* FOOTER */
 
 .footer{
-  margin-top:100px;
-  padding:40px 0;
+  margin-top:120px;
+  padding-bottom:40px;
   text-align:center;
   font-family:monospace;
   color:#777;
 }
 
-.engineer{
-  margin-top:20px;
+.footer .engineer{
+  margin-top:8px;
   font-size:13px;
-  color:#555;
   letter-spacing:2px;
+  color:#555;
 }
 
-/* CURSOR GLOW */
+/* CURSOR */
 
 #cursor{
   position:fixed;
@@ -196,6 +181,7 @@ h1{
 </head>
 <body>
 
+<!-- NAV -->
 <div class="nav">
   <a href="https://donatex.gg/donate/kapitanych">Donatex</a>
   <a href="https://www.donationalerts.com/r/bossgg">DonatAlerts</a>
@@ -212,36 +198,31 @@ h1{
        onclick="window.open('https://twitch.tv/kapitanych_','_blank')">
 
   <h1>KAPITANYCH</h1>
-  <div class="subtitle">STANDOFF OPERATIVE</div>
 
   <div class="modules">
 
     <div class="module" onclick="window.open('https://donatex.gg/donate/kapitanych')">
       <h3>DONATION SUPPORT</h3>
-      <p>Support the stream and upgrade the arsenal</p>
     </div>
 
     <div class="module" onclick="window.open('https://t.me/KapitanGG')">
       <h3>TELEGRAM SQUAD</h3>
-      <p>Join the squad and get updates</p>
     </div>
 
     <div class="module" onclick="window.open('https://www.youtube.com/@Капитаныч')">
       <h3>HIGHLIGHT ARCHIVE</h3>
-      <p>Best moments and match recordings</p>
     </div>
 
     <div class="module" onclick="window.open('https://discord.com/')">
       <h3>DISCORD BASE</h3>
-      <p>Voice chat and community hub</p>
     </div>
 
   </div>
 
   <div class="footer">
-    © 2026 Kapitanych<br>
+    © 2026 Kapitanych
     <div class="engineer">
-      SYSTEM ENGINEER: MULTIVARKA
+      MULTIVARKA
     </div>
   </div>
 
