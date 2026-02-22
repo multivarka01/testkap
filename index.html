@@ -3,20 +3,16 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Kapitanych — Command Center</title>
+<title>Kapitanych — Tactical Interface</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;800&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Inter:wght@400;600&display=swap" rel="stylesheet">
 
 <style>
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-}
+*{margin:0;padding:0;box-sizing:border-box;}
 
 body{
   font-family:Inter,system-ui;
-  background:#070b14;
+  background:#06080f;
   color:white;
   overflow-x:hidden;
 }
@@ -32,9 +28,9 @@ body{
   align-items:center;
   justify-content:center;
   gap:40px;
-  background:rgba(10,14,28,0.6);
-  backdrop-filter:blur(16px);
-  border-bottom:1px solid rgba(255,255,255,0.08);
+  background:rgba(10,12,20,0.7);
+  backdrop-filter:blur(14px);
+  border-bottom:1px solid rgba(255,255,255,0.06);
   z-index:10;
 }
 
@@ -64,109 +60,127 @@ body{
 /* AVATAR */
 
 .avatar{
-  width:110px;
-  height:110px;
+  width:120px;
+  height:120px;
   border-radius:50%;
   border:3px solid #a855f7;
-  box-shadow:0 0 25px #a855f7;
+  box-shadow:0 0 30px #a855f7;
   margin-bottom:20px;
-  cursor:pointer;
   transition:.4s;
+  cursor:pointer;
 }
 
 .avatar:hover{
   transform:scale(1.08);
-  box-shadow:0 0 50px #a855f7;
+  box-shadow:0 0 60px #a855f7;
 }
 
 /* TITLE */
 
 h1{
   font-family:Orbitron;
-  font-size:48px;
-  letter-spacing:3px;
+  font-size:52px;
+  letter-spacing:4px;
+  font-weight:900;
 }
 
 .subtitle{
-  margin-top:8px;
+  margin-top:10px;
+  font-size:16px;
+  letter-spacing:3px;
   color:#888;
-  letter-spacing:2px;
 }
 
-/* STATUS */
-
-.status{
-  margin-top:20px;
-  padding:10px 20px;
-  border-radius:999px;
-  background:rgba(168,85,247,0.1);
-  border:1px solid #a855f7;
-  font-weight:600;
-  box-shadow:0 0 15px rgba(168,85,247,.5);
-  animation:pulse 2.5s infinite;
-}
-
-@keyframes pulse{
-  0%,100%{box-shadow:0 0 15px rgba(168,85,247,.5);}
-  50%{box-shadow:0 0 30px rgba(168,85,247,.9);}
-}
-
-/* MODULES */
+/* MODULES GRID */
 
 .modules{
-  margin-top:50px;
+  margin-top:60px;
   width:100%;
-  max-width:900px;
+  max-width:1000px;
   display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
   gap:25px;
   padding:0 20px;
 }
 
+/* HUD CARD */
+
 .module{
+  position:relative;
   padding:30px;
-  border-radius:18px;
-  background:rgba(255,255,255,0.04);
+  background:rgba(255,255,255,0.03);
   border:1px solid rgba(168,85,247,0.3);
-  backdrop-filter:blur(12px);
+  border-radius:16px;
+  backdrop-filter:blur(10px);
   transition:.4s;
   cursor:pointer;
-  transform-style:preserve-3d;
+  overflow:hidden;
+}
+
+/* HUD corners */
+.module::before,
+.module::after{
+  content:"";
+  position:absolute;
+  width:25px;
+  height:25px;
+  border:2px solid #a855f7;
+}
+
+.module::before{
+  top:0;
+  left:0;
+  border-right:none;
+  border-bottom:none;
+}
+
+.module::after{
+  bottom:0;
+  right:0;
+  border-left:none;
+  border-top:none;
 }
 
 .module h3{
   font-family:Orbitron;
-  margin-bottom:10px;
   letter-spacing:2px;
+  margin-bottom:10px;
 }
 
 .module p{
-  color:#aaa;
   font-size:14px;
+  color:#aaa;
 }
 
 .module:hover{
   transform:translateY(-6px) scale(1.02);
-  box-shadow:0 0 30px rgba(168,85,247,.6);
   border-color:#a855f7;
+  box-shadow:0 0 35px rgba(168,85,247,.6);
 }
 
 /* FOOTER */
 
 .footer{
-  margin-top:80px;
+  margin-top:100px;
   padding:40px 0;
   text-align:center;
   font-family:monospace;
   color:#777;
 }
 
-/* BACKGROUND GLOW */
+.engineer{
+  margin-top:20px;
+  font-size:13px;
+  color:#555;
+  letter-spacing:2px;
+}
+
+/* CURSOR GLOW */
 
 #cursor{
   position:fixed;
-  width:500px;
-  height:500px;
+  width:450px;
+  height:450px;
   border-radius:50%;
   pointer-events:none;
   background:radial-gradient(circle, rgba(168,85,247,0.25) 0%, transparent 70%);
@@ -174,24 +188,8 @@ h1{
   z-index:-1;
 }
 
-/* CAPTAIN MODE */
-
-body.captain{
-  background:#05010c;
-}
-
-body.captain .module{
-  border-color:#00f0ff;
-  box-shadow:0 0 40px rgba(0,240,255,.6);
-}
-
-body.captain .status{
-  border-color:#00f0ff;
-  box-shadow:0 0 35px rgba(0,240,255,.8);
-}
-
 @media(max-width:768px){
-  h1{font-size:32px;}
+  h1{font-size:34px;}
   #cursor{display:none;}
 }
 </style>
@@ -211,39 +209,40 @@ body.captain .status{
 
   <img src="https://i.ibb.co/pr0NNwxx/444444.png"
        class="avatar"
-       id="avatar"
        onclick="window.open('https://twitch.tv/kapitanych_','_blank')">
 
   <h1>KAPITANYCH</h1>
-  <div class="subtitle">Multivarka Commander</div>
-
-  <div class="status">
-    🚀 Mission Status: Broadcasting from Earth Orbit
-  </div>
+  <div class="subtitle">STANDOFF OPERATIVE</div>
 
   <div class="modules">
 
     <div class="module" onclick="window.open('https://donatex.gg/donate/kapitanych')">
-      <h3>DONATIONS MODULE</h3>
-      <p>Support the mission and fuel the reactor</p>
+      <h3>DONATION SUPPORT</h3>
+      <p>Support the stream and upgrade the arsenal</p>
     </div>
 
     <div class="module" onclick="window.open('https://t.me/KapitanGG')">
-      <h3>COMMUNITY HUB</h3>
-      <p>Join the crew and receive mission updates</p>
+      <h3>TELEGRAM SQUAD</h3>
+      <p>Join the squad and get updates</p>
     </div>
 
     <div class="module" onclick="window.open('https://www.youtube.com/@Капитаныч')">
-      <h3>MEDIA ARCHIVE</h3>
-      <p>Stream highlights and classified recordings</p>
+      <h3>HIGHLIGHT ARCHIVE</h3>
+      <p>Best moments and match recordings</p>
+    </div>
+
+    <div class="module" onclick="window.open('https://discord.com/')">
+      <h3>DISCORD BASE</h3>
+      <p>Voice chat and community hub</p>
     </div>
 
   </div>
 
   <div class="footer">
-    Location: Sector 7 — Earth<br>
-    Signal Strength: 100%<br>
-    © 2026 Kapitanych
+    © 2026 Kapitanych<br>
+    <div class="engineer">
+      SYSTEM ENGINEER: MULTIVARKA
+    </div>
   </div>
 
 </section>
@@ -251,14 +250,14 @@ body.captain .status{
 <div id="cursor"></div>
 
 <script>
-
-/* Glow Cursor */
 const cursor=document.getElementById("cursor");
 let mouseX=0, mouseY=0, posX=0, posY=0;
+
 document.addEventListener("mousemove",e=>{
   mouseX=e.clientX;
   mouseY=e.clientY;
 });
+
 function loop(){
   posX+=(mouseX-posX)*0.08;
   posY+=(mouseY-posY)*0.08;
@@ -267,17 +266,6 @@ function loop(){
   requestAnimationFrame(loop);
 }
 loop();
-
-/* Captain Mode (5 clicks on avatar) */
-let clicks=0;
-document.getElementById("avatar").addEventListener("click",()=>{
-  clicks++;
-  if(clicks>=5){
-    document.body.classList.toggle("captain");
-    clicks=0;
-  }
-});
-
 </script>
 
 </body>
