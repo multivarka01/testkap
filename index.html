@@ -67,7 +67,7 @@ body{
   100%{text-shadow:2px 0 #a855f7,-2px 0 #ff00ff;}
 }
 
-/* ===== ANIMATED BACKGROUND ===== */
+/* ===== BACKGROUND ===== */
 
 .background{
   position:fixed;
@@ -143,20 +143,31 @@ body{
   transform:translateY(0);
 }
 
-.avatar{
-  width:120px;
-  height:120px;
-  border-radius:50%;
-  border:3px solid #a855f7;
-  box-shadow:0 0 30px #a855f7;
-  margin-bottom:20px;
-  transition:.4s;
-  cursor:pointer;
+/* ===== АВАТАР-ЗАГЛУШКА (БУКВА К) ===== */
+
+.avatar-placeholder {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  background: rgba(168, 85, 247, 0.1);
+  border: 3px solid #a855f7;
+  box-shadow: 0 0 30px #a855f7;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Orbitron', sans-serif;
+  font-size: 60px;
+  font-weight: 900;
+  color: white;
+  text-shadow: 0 0 20px #a855f7;
+  transition: 0.4s;
+  cursor: pointer;
 }
 
-.avatar:hover{
-  transform:scale(1.08);
-  box-shadow:0 0 60px #a855f7;
+.avatar-placeholder:hover {
+  transform: scale(1.08);
+  box-shadow: 0 0 60px #a855f7;
 }
 
 h1{
@@ -262,41 +273,39 @@ h1{
 <div class="grid"></div>
 
 <div class="nav">
-  <a href="#">Donatex</a>
-  <a href="#">DonatAlerts</a>
-  <a href="#">Telegram</a>
-  <a href="#">Discord</a>
-  <a href="#">YouTube</a>
-  <a href="#">TikTok</a>
+  <a href="https://donatex.gg/donate/kapitanych" target="_blank">Donatex</a>
+  <a href="https://new.donatepay.ru/@Kapitan" target="_blank">DonatPay</a>
+  <a href="https://t.me/KapitanGG" target="_blank">Telegram</a>
+  <a href="https://discord.com/" target="_blank">Discord</a>
+  <a href="https://www.youtube.com/@Капитаныч" target="_blank">YouTube</a>
+  <a href="https://www.tiktok.com/@tt_kapitanych" target="_blank">TikTok</a>
 </div>
 
 <section class="hero" id="hero">
 
-  <img src="https://i.ibb.co/pr0NNwxx/444444.png"
-       class="avatar">
+  <!-- НОВЫЙ ЭЛЕМЕНТ ВМЕСТО АВАТАРА: БУКВА K -->
+  <div class="avatar-placeholder" onclick="window.open('https://twitch.tv/kapitanych_','_blank')">K</div>
 
   <h1>KAPITANYCH</h1>
 
   <div class="modules">
 
     <div class="row">
-      <div class="module"><h3>DONATALERTS</h3></div>
-      <div class="module"><h3>TELEGRAM</h3></div>
-      <div class="module"><h3>YOUTUBE</h3></div>
+      <div class="module" onclick="window.open('https://donatex.gg/donate/kapitanych','_blank')"><h3>DONATEX</h3></div>
+      <div class="module" onclick="window.open('https://t.me/KapitanGG','_blank')"><h3>TELEGRAM</h3></div>
+      <div class="module" onclick="window.open('https://www.youtube.com/@Капитаныч','_blank')"><h3>YOUTUBE</h3></div>
     </div>
 
     <div class="row">
-      <div class="module"><h3>DISCORD</h3></div>
-      <div class="module"><h3>TIKTOK</h3></div>
+      <div class="module" onclick="window.open('https://discord.com/','_blank')"><h3>DISCORD</h3></div>
+      <div class="module" onclick="window.open('https://www.tiktok.com/@tt_kapitanych','_blank')"><h3>TIKTOK</h3></div>
     </div>
 
   </div>
 
   <div class="footer">
     © 2026 Kapitanych
-    <div class="engineer">
-      MULTIVARKA
-    </div>
+    <div class="engineer">MULTIVARKA</div>
   </div>
 
 </section>
